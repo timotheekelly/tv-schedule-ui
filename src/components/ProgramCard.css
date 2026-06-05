@@ -1,0 +1,163 @@
+.program-card {
+  overflow: hidden;
+  border: 1px solid rgba(245, 234, 215, 0.16);
+  border-radius: 22px;
+  background: rgba(42, 31, 27, 0.82);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.program-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(212, 154, 91, 0.44);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.36);
+}
+
+.program-poster-frame {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  background: #2b211d;
+}
+
+.program-poster {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  background: #2b211d;
+}
+
+.program-poster-placeholder {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  border-bottom: 1px solid rgba(245, 234, 215, 0.12);
+  background:
+    linear-gradient(135deg, rgba(212, 154, 91, 0.16), transparent 42%),
+    linear-gradient(315deg, rgba(117, 47, 36, 0.22), transparent 48%),
+    repeating-linear-gradient(
+      0deg,
+      rgba(245, 234, 215, 0.025),
+      rgba(245, 234, 215, 0.025) 1px,
+      transparent 1px,
+      transparent 6px
+    ),
+    #241a17;
+}
+
+.program-poster-placeholder span {
+  border: 1px solid rgba(245, 234, 215, 0.22);
+  border-radius: 999px;
+  padding: 8px 12px;
+  color: #d49a5b;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: rgba(23, 17, 15, 0.48);
+}
+
+.program-card-body {
+  padding: 16px;
+}
+
+.program-card-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: baseline;
+  margin-bottom: 8px;
+}
+
+.program-type {
+  margin: 0;
+  color: #d49a5b;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.program-platform {
+  margin: 0;
+  color: #bda891;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: right;
+}
+
+.program-card h2 {
+  margin: 0 0 8px;
+  font-size: 1.15rem;
+  line-height: 1.2;
+  letter-spacing: -0.04em;
+}
+
+.program-year {
+  margin: 0 0 12px;
+  color: #bda891;
+}
+
+.program-description {
+  margin: 0;
+  color: #cdbca8;
+  line-height: 1.5;
+  font-size: 0.9rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.program-link {
+  display: inline-block;
+  margin-top: 14px;
+  color: #d49a5b;
+  text-decoration: none;
+}
+
+.program-link:hover {
+  text-decoration: underline;
+}
+
+.program-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: auto;
+}
+
+.program-card-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-left: auto;
+}
+
+.program-card-action {
+  border: 1px solid rgba(244, 234, 216, 0.22);
+  background: rgba(255, 255, 255, 0.04);
+  color: inherit;
+  border-radius: 999px;
+  padding: 0.4rem 0.7rem;
+  font: inherit;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.program-card-action:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.program-card-action.danger {
+  border-color: rgba(210, 92, 70, 0.45);
+  color: #f0b0a8;
+}
+
+.program-card-action.danger:hover {
+  background: rgba(210, 92, 70, 0.12);
+}

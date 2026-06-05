@@ -1,0 +1,43 @@
+.view-tabs {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+  padding: 8px;
+  width: fit-content;
+  border: 1px solid rgba(245, 234, 215, 0.12);
+  border-radius: 999px;
+  background: rgba(23, 17, 15, 0.64);
+}
+
+.view-tabs button {
+  border: 1px solid transparent;
+  border-radius: 999px;
+  padding: 10px 16px;
+  color: #cdbca8;
+  background: transparent;
+  cursor: pointer;
+  transition:
+    color 160ms ease,
+    background 160ms ease,
+    border-color 160ms ease;
+}
+
+.view-tabs button:hover {
+  color: #f5ead7;
+}
+
+.view-tabs button.active {
+  color: #fff4df;
+  border-color: rgba(212, 154, 91, 0.72);
+  background: rgba(117, 47, 36, 0.68);
+}
+
+@media (max-width: 760px) {
+  .view-tabs {
+    width: 100%;
+  }
+
+  .view-tabs button {
+    flex: 1;
+  }
+}

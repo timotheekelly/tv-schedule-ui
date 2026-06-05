@@ -1,0 +1,79 @@
+.toolbar {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 360px);
+  gap: 20px;
+  align-items: end;
+  margin-bottom: 28px;
+  padding: 16px;
+  border: 1px solid rgba(245, 234, 215, 0.12);
+  border-radius: 24px;
+  background: rgba(23, 17, 15, 0.64);
+  backdrop-filter: blur(10px);
+}
+
+.filter-bar {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.filter-bar button {
+  border: 1px solid rgba(245, 234, 215, 0.18);
+  border-radius: 999px;
+  padding: 10px 16px;
+  color: #f5ead7;
+  background: rgba(42, 31, 27, 0.9);
+  cursor: pointer;
+  transition:
+    border-color 160ms ease,
+    background 160ms ease,
+    transform 160ms ease;
+}
+
+.filter-bar button:hover {
+  border-color: #d49a5b;
+  transform: translateY(-1px);
+}
+
+.filter-bar button.active {
+  border-color: rgba(212, 154, 91, 0.9);
+  background: rgba(117, 47, 36, 0.68);
+  color: #fff4df;
+}
+
+.search-field {
+  display: grid;
+  gap: 8px;
+}
+
+.search-field span {
+  color: #bda891;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.search-field input {
+  width: 100%;
+  border: 1px solid rgba(245, 234, 215, 0.18);
+  border-radius: 999px;
+  padding: 11px 15px;
+  color: #f5ead7;
+  background: rgba(42, 31, 27, 0.9);
+  outline: none;
+}
+
+.search-field input::placeholder {
+  color: rgba(205, 188, 168, 0.56);
+}
+
+.search-field input:focus {
+  border-color: rgba(212, 154, 91, 0.9);
+  box-shadow: 0 0 0 3px rgba(212, 154, 91, 0.14);
+}
+
+@media (max-width: 760px) {
+  .toolbar {
+    grid-template-columns: 1fr;
+  }
+}

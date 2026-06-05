@@ -1,0 +1,64 @@
+.weekly-schedule {
+  display: grid;
+  gap: 24px;
+}
+
+.schedule-day {
+  padding: 18px;
+  border: 1px solid rgba(245, 234, 215, 0.14);
+  border-radius: 28px;
+  background: rgba(23, 17, 15, 0.56);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.2);
+}
+
+.schedule-day-header {
+  margin-bottom: 18px;
+}
+
+.schedule-day-header h2 {
+  margin: 0;
+  font-size: clamp(1.6rem, 3vw, 2.6rem);
+  letter-spacing: -0.06em;
+}
+
+.schedule-row {
+  display: grid;
+  grid-template-columns: minmax(220px, 320px) minmax(0, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+
+.schedule-label {
+  margin: 0 0 10px;
+  color: #bda891;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.schedule-tv-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(180px, 1fr));
+  gap: 20px;
+}
+
+.schedule-missing {
+  min-height: 180px;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  border: 1px dashed rgba(245, 234, 215, 0.18);
+  border-radius: 20px;
+  color: #bda891;
+  background: rgba(42, 31, 27, 0.52);
+}
+
+@media (max-width: 860px) {
+  .schedule-row {
+    grid-template-columns: 1fr;
+  }
+
+  .schedule-tv-grid {
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  }
+}
