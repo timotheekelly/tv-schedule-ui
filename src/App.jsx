@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import { fetchPrograms } from "./api/programsApi";
 import { fetchSchedule } from "./api/schedulesApi";
+import { fetchCurrentUser, logout } from "./api/authApi";
 import { toProgramCards } from "./mappers/programMapper";
 import { toWeeklySchedule } from "./mappers/scheduleMapper";
 import { AppHeader } from "./components/AppHeader";
 import { ViewTabs } from "./components/ViewTabs";
 import { SchedulePage } from "./pages/SchedulePage";
 import { LibraryPage } from "./pages/LibraryPage";
+import { LoginPage } from "./pages/LoginPage";
 
 import "./styles/base.css";
 import "./styles/layout.css";
@@ -24,6 +26,7 @@ function replaceProgram(program, updatedProgram) {
 }
 
 function App() {
+  const [user, setUser] = useState(undefined); // undefined = checking, null = logged out
   const [programs, setPrograms] = useState([]);
   const [schedule, setSchedule] = useState([]);
   const [activeView, setActiveView] = useState("SCHEDULE");
@@ -33,6 +36,13 @@ function App() {
   useEffect(() => {
     async function loadInitialData() {
       try {
+        const currentUser = await fetchCurrentUser();
+        setUser(currentUser);
+
+        if (!currentUser) {
+          return;
+        }
+
         const [programData, scheduleData] = await Promise.all([
           fetchPrograms(),
           fetchSchedule()
@@ -49,6 +59,13 @@ function App() {
 
     loadInitialData();
   }, []);
+
+  async function handleLogout() {
+    await logout();
+    setUser(null);
+    setPrograms([]);
+    setSchedule([]);
+  }
 
   function handleProgramUpdated(updatedProgram) {
     setPrograms((currentPrograms) =>
@@ -75,7 +92,7 @@ function App() {
     );
   }
 
-  if (loading) {
+  if (user === undefined || loading) {
     return (
       <main className="page">
         <section className="status-panel">
@@ -85,6 +102,10 @@ function App() {
         </section>
       </main>
     );
+  }
+
+  if (!user) {
+    return <LoginPage />;
   }
 
   if (errorMessage) {
@@ -105,6 +126,8 @@ function App() {
         activeView={activeView}
         scheduleCount={schedule.length}
         programCount={programs.length}
+        user={user}
+        onLogout={handleLogout}
       />
 
       <ViewTabs activeView={activeView} onViewChange={setActiveView} />

@@ -1,6 +1,6 @@
 import "./AppHeader.css";
 
-export function AppHeader({ activeView, scheduleCount, programCount }) {
+export function AppHeader({ activeView, scheduleCount, programCount, user, onLogout }) {
   const isScheduleView = activeView === "SCHEDULE";
 
   return (
@@ -15,9 +15,23 @@ export function AppHeader({ activeView, scheduleCount, programCount }) {
         </p>
       </div>
 
-      <div className="library-summary">
-        <span>{isScheduleView ? scheduleCount : programCount}</span>
-        <p>{isScheduleView ? "days planned" : "programs loaded"}</p>
+      <div className="header-sidebar">
+        {user && (
+          <div className="user-panel">
+            {user.pictureUrl && (
+              <img src={user.pictureUrl} alt="" className="user-avatar" referrerPolicy="no-referrer" />
+            )}
+            <div className="user-details">
+              <span className="user-name">{user.displayName}</span>
+              <button onClick={onLogout} className="logout-btn">Sign out</button>
+            </div>
+          </div>
+        )}
+
+        <div className="library-summary">
+          <span>{isScheduleView ? scheduleCount : programCount}</span>
+          <p>{isScheduleView ? "days planned" : "programs loaded"}</p>
+        </div>
       </div>
     </header>
   );

@@ -26,7 +26,7 @@ export async function fetchPrograms(type) {
     ? `${API_BASE_URL}/api/programs?${queryString}`
     : `${API_BASE_URL}/api/programs`;
 
-  const response = await fetch(url);
+  const response = await fetch(url, { credentials: "include" });
   return parseResponse(response);
 }
 
@@ -36,7 +36,8 @@ export async function updateProgram(id, program) {
     headers: {
       "Content-Type": "application/json"
     },
-    body: JSON.stringify(program)
+    body: JSON.stringify(program),
+    credentials: "include"
   });
 
   return parseResponse(response);

@@ -1,0 +1,28 @@
+.login-panel {
+  max-width: 480px;
+  padding-top: 80px;
+}
+
+.login-description {
+  margin: 18px 0 32px;
+  color: #cdbca8;
+  line-height: 1.7;
+}
+
+.google-btn {
+  display: inline-block;
+  padding: 14px 28px;
+  background: rgba(42, 31, 27, 0.74);
+  border: 1px solid rgba(245, 234, 215, 0.2);
+  border-radius: 12px;
+  color: #f5ead7;
+  text-decoration: none;
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.google-btn:hover {
+  background: rgba(60, 44, 38, 0.9);
+  border-color: rgba(212, 154, 91, 0.4);
+}

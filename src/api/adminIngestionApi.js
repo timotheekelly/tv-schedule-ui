@@ -3,7 +3,7 @@ const ADMIN_API_ROUTE = "/api/admin/programs";
 
 // /search/movies
 export async function fetchTmdbMovies() {
-  const response = await fetch(`${API_BASE_URL}${ADMIN_API_ROUTE}/search/movies`);
+  const response = await fetch(`${API_BASE_URL}${ADMIN_API_ROUTE}/search/movies`, { credentials: "include" });
 
   if (!response.ok) {
     throw new Error(`Failed to fetch Tmdb Movies: ${response.status}`);
